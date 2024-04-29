@@ -27,15 +27,8 @@ export default function AppHeader() {
 	}, [])
 
 	function handleSelect(value: string) {
-		console.log(value)
-		const selectedCoin = crypto.find((coin) => coin.id === value)
-
-		if (selectedCoin) {
-			setCoin(selectedCoin)
-			setIsModalOpen(true)
-		} else {
-			console.log('coin not found')
-		}
+		setCoin(crypto.find((coin) => coin.id === value) ?? null)
+		setIsModalOpen(true)
 	}
 
 	return (
@@ -68,7 +61,7 @@ export default function AppHeader() {
 				onCancel={() => setIsModalOpen(false)}
 				footer={null}
 			>
-				<CoinInfoModal coin={coin} />
+				{coin && <CoinInfoModal coin={coin} />}
 			</Modal>
 
 			<Button type='primary' onClick={() => setIsDrawerOpen(true)}>
@@ -79,8 +72,9 @@ export default function AppHeader() {
 				width={600}
 				onClose={() => setIsDrawerOpen(false)}
 				open={isDrawerOpen}
+				destroyOnClose
 			>
-				<AddAssetForm />
+				<AddAssetForm onClose={() => setIsDrawerOpen(false)} />
 			</Drawer>
 		</Header>
 	)

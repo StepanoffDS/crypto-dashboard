@@ -1,20 +1,12 @@
-import { Divider, Flex, Tag, Typography } from 'antd'
+import { Divider, Tag, Typography } from 'antd'
 import { TCryptoDataResult } from '../../data'
+import CoinStats from '../CoinStats/CoinStats'
 
 export default function CoinInfoModal({ coin }: { coin: TCryptoDataResult }) {
 	return (
 		<>
-			<Flex gap='middle' align='center'>
-				<img
-					src={coin.icon}
-					alt={coin.name}
-					style={{ width: 40, height: 40 }}
-				/>
-				<Typography.Title level={2} style={{ marginBottom: 0 }}>
-					{coin.name} ({coin.symbol})
-				</Typography.Title>
-			</Flex>
-			<Divider></Divider>
+			<CoinStats coin={coin} />
+			<Divider />
 			<Typography.Paragraph>
 				<Typography.Text strong style={{ marginRight: 10 }}>
 					1 hour:
