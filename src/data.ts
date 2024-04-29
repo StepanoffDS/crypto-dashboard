@@ -21,6 +21,7 @@ export type TCryptoDataResult = {
 	websiteUrl: string
 	twitterUrl: string
 	explorers: string[]
+	contractAddress?: string
 }
 
 export const cryptoData = {

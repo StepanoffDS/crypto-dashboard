@@ -1,6 +1,7 @@
 import { Divider, Flex, Tag, Typography } from 'antd'
+import { TCryptoDataResult } from '../../data'
 
-export default function CoinInfoModal({ coin }) {
+export default function CoinInfoModal({ coin }: { coin: TCryptoDataResult }) {
 	return (
 		<>
 			<Flex gap='middle' align='center'>
