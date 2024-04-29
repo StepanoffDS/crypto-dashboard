@@ -2,12 +2,12 @@ import Sider from 'antd/es/layout/Sider'
 import styles from './AppSider.module.scss'
 import { Card, List, Statistic, Typography, Tag } from 'antd'
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons'
-import { FC, useContext } from 'react'
+import { FC } from 'react'
 import { capitalize } from '../../../utils'
-import CryptoContext from '../../../context/crypto-context'
+import { useCrypto } from '../../../context/crypto-context'
 
 const AppSider: FC = () => {
-	const { assets } = useContext(CryptoContext)
+	const { assets } = useCrypto()
 
 	return (
 		<Sider className={styles.siderStyle} width='25%'>
