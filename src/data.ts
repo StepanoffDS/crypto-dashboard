@@ -147,9 +147,10 @@ export const cryptoData = {
 
 export type TCryptoAssets = {
 	id: string
+	name?: string
 	amount: number | undefined
 	price: number | undefined
-	date: string | Date
+	date?: string | Date
 	isGrow?: boolean | undefined
 	growPercent?: number
 	totalAmount?: number

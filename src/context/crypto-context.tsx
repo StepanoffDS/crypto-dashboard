@@ -39,6 +39,7 @@ export function CryptoContextProvider({ children }: { children: ReactNode }) {
 					coin?.price && asset.amount && asset.price
 						? asset.amount * (coin.price - asset.price)
 						: 0,
+				name: coin?.name ?? coin?.id,
 				...asset,
 			}
 		})
