@@ -36,4 +36,17 @@ export type TCryptoAssets = {
 	totalProfit?: number
 }
 
-export const cryptoAssets = []
+export const cryptoAssets = [
+	{
+		id: 'bitcoin',
+		amount: 0.22,
+		price: 26244,
+		date: new Date(),
+	},
+	{
+		id: 'ethereum',
+		amount: 20,
+		price: 3420,
+		date: new Date(),
+	},
+]
