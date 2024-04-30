@@ -1,11 +1,20 @@
-import { TCryptoAssets, TCryptoData, cryptoAssets, cryptoData } from './data'
+import { TCryptoAssets, TCryptoData, cryptoAssets } from './data'
 
 export function fetchCrypto(): Promise<TCryptoData> {
-	return new Promise((resolve) => {
-		setTimeout(() => {
-			resolve(cryptoData)
-		}, 0)
-	})
+	const options = {
+		method: 'GET',
+		headers: {
+			accept: 'application/json',
+			'X-API-KEY': 'dravNGhRF6fPcMOH6aVNWa8xuFDrJGBdO5tvIjEjNM8=',
+		},
+	}
+
+	return fetch('https://openapiv1.coinstats.app/coins', options)
+		.then((response) => response.json())
+		.catch((error) => {
+			console.error('Error:', error)
+			throw error
+		})
 }
 
 export function fetchAssets(): Promise<TCryptoAssets[]> {
@@ -15,16 +24,3 @@ export function fetchAssets(): Promise<TCryptoAssets[]> {
 		}, 0)
 	})
 }
-
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		accept: 'application/json',
-// 		'X-API-KEY': 'dravNGhRF6fPcMOH6aVNWa8xuFDrJGBdO5tvIjEjNM8=',
-// 	},
-// }
-
-// fetch('https://openapiv1.coinstats.app/coins', options)
-// 	.then((response) => response.json())
-// 	.then((response) => console.log(response))
-// 	.catch((err) => console.error(err))

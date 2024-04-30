@@ -54,6 +54,8 @@ export function CryptoContextProvider({ children }: { children: ReactNode }) {
 			setCrypto(result)
 			setAssets(mapAssets(assets, result))
 			setLoading(false)
+
+			console.log(result)
 		}
 		preload()
 	}, [])
